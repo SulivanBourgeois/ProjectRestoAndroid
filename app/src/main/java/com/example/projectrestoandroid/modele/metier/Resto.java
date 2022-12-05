@@ -1,4 +1,4 @@
-package com.example.projectrestoandroid.modele;
+package com.example.projectrestoandroid.modele.metier.;
 
 public class Resto {
     protected String nomResto;
