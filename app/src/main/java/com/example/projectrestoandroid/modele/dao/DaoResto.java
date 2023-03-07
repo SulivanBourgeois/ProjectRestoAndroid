@@ -21,7 +21,7 @@ public class DaoResto extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE TABLE Resto(_id INTEGER PRIMARY KEY, nom TEXT, ville TEXT");
+        db.execSQL("CREATE TABLE Resto(_id INTEGER PRIMARY KEY, nom TEXT, ville TEXT)");
     }
 
     @Override
@@ -70,6 +70,18 @@ public class DaoResto extends SQLiteOpenHelper {
         Cursor c=db.rawQuery("SELECT * FROM resto", null);
 
         return c;
+    }
+
+    public Resto getOneResto(int id)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor c=db.query("resto",new String[]{"_id","nom","ville"},"_id=?",
+                new String[]{String.valueOf(id)}, null, null, null);
+
+        c.moveToFirst();
+        Resto r=new Resto(c.getInt(0),c.getString(1),c.getString(2));
+
+        return r;
     }
 
 }
