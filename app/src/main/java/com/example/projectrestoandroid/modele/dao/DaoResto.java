@@ -55,4 +55,21 @@ public class DaoResto extends SQLiteOpenHelper {
         db.update("resto", cv, "_id=?", new String[]{String.valueOf(r.getId())});
         db.close();
     }
+
+    public void deleteResto(int id)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        db.delete("resto", "_id=?", new String[]{String.valueOf(id)});
+    }
+
+    public Cursor getAllResto()
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor c=db.rawQuery("SELECT * FROM resto", null);
+
+        return c;
+    }
+
 }
