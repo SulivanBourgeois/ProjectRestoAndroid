@@ -1,27 +1,40 @@
 package com.example.projectrestoandroid.modele.metier;
 
 public class Resto {
-    protected String nomResto;
-    protected String Ville;
 
-    public Resto(String nomResto, String Ville) {
-        this.nomResto = nomResto;
-        this.Ville = Ville;
+    int id;
+    String nom;
+    String ville;
+
+    public Resto(int id, String nom, String ville) {
+        this.id = id;
+        this.nom = nom;
+        this.ville = ville;
     }
 
-    public String getNomResto() { return nomResto;}
-
-    public void setNomResto(String nomResto) {this.nomResto = nomResto;}
-
-    public String getVille() {return Ville;}
-
-    public void setVille(String ville) {this.Ville = Ville;}{}
-
-    @Override
-    public String toString() {
-        return "Resto{" +
-                "nomResto='" + nomResto + '\'' +
-                ", Ville=" + Ville +
-                '}';
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+
 }
